@@ -11,9 +11,7 @@ class Solution:
                 return
             visited.add((r,c))
             for dr,dc in directions:
-                curr = r + dr
-                curc = c+ dc
-                dfs(curr, curc, visited, heights[r][c])
+                dfs(r + dr, c + dc, visited, heights[r][c])
                 
         for row in range(rows):
             dfs(row,0,pac,heights[row][0])
@@ -22,8 +20,4 @@ class Solution:
             dfs(0,col,pac,heights[0][col])
             dfs(rows-1,col,atl,heights[rows-1][col])
         
-        for row in range(rows):
-            for col in range(cols):
-                if (row,col) in atl and (row,col) in pac:
-                    res.append([row,col])
-        return res 
+        return list(pac & atl)
