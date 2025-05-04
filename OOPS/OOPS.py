@@ -1,37 +1,49 @@
-class Microwave:
-	def __init__(self, brand : str, power_rating: int) -> None:
-		self.brand = brand
-		self.power_rating = power_rating
-		self.turned_on: bool = False 
-	
-	def turn_on(self) -> None:
-		if self.turned_on:
-			print(f'Microwave({self.brand}) is already turned on.')
-		else:
-			self.turned_on = True
-			print(f'Microwave({self.brand}) is now turned on.')
-	
-	def turn_off(self) -> None:
-		if self.turned_on:
-			self.turned_on = False
-			print(f'Microwave({self.brand}) is now turned off.')
-		else:
-			print(f'Microwave({self.brand}) is already turned off.')
 
-	def run(self, seconds: int) -> None:
-		if self.turned_on:
-			while seconds > 0:
-				print(f'Microwave({self.brand}) is started and will run for {seconds} seconds.')
-				seconds -= 1
-		else:
-			print(f'Microwave({self.brand}) is turned off, Please switch it on to run.')
+class Pizza():
+
+	def __init__(self, base: str):
+		self.base = base
+		self.toppings = []
+
+	def add_toppings(self, topping: str, cost: float) -> None:
+		self.toppings.append((topping,cost))
+
+	def get_description(self) -> str:
+		desc = self.base + " with " + ", ".join([topping[0] for topping in self.toppings])
+		return desc
+
+	def get_price(self) -> float:
+		base_price = {"Margherita": 6.0, "ChickenDelight": 9.0, "FarmHouse" : 7.5}
+		price = base_price.get(self.base, 6.0)
+		for topping, cost in self.toppings:
+			price += cost
+		return price
+
+class PizzaBuilder():
+
+	def __init__(self, base: str):
+		self.pizza = Pizza(base)
+
+	def add_cheese(self):
+		self.pizza.add_toppings("Cheese", 1.5)
+		return self
+
+	def add_Mushrooms(self):
+		self.pizza.add_toppings("Mushrooms", 2.5)
+		return self
+
+	def add_Tomatoes(self):
+		self.pizza.add_toppings("Tomatoes", 0.5)
+		return self
+
+	def build(self):
+		return self.pizza
 
 
+if __name__ == "__main__":
+	my_pizza = PizzaBuilder("Margherita")
+	my_pizza = my_pizza.add_cheese().add_Mushrooms().build()
 
-bosch: Microwave = Microwave("Bosch",1)
-smeg: Microwave = Microwave("Smeg",2)
-
-print(smeg)
-
-
+	print(f'ORDER: '+ my_pizza.get_description())
+	print(f'TOTAL BILL AMOUNT: $ {str(my_pizza.get_price())}')
 
