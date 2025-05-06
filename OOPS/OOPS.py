@@ -1,49 +1,31 @@
 
-class Pizza():
 
-	def __init__(self, base: str):
-		self.base = base
-		self.toppings = []
+class Parkingspot():
+	def __init__(self, spot_id: str):
+		self.spot_id = spot_id
+		self.is_parked = False
 
-	def add_toppings(self, topping: str, cost: float) -> None:
-		self.toppings.append((topping,cost))
 
-	def get_description(self) -> str:
-		desc = self.base + " with " + ", ".join([topping[0] for topping in self.toppings])
-		return desc
 
-	def get_price(self) -> float:
-		base_price = {"Margherita": 6.0, "ChickenDelight": 9.0, "FarmHouse" : 7.5}
-		price = base_price.get(self.base, 6.0)
-		for topping, cost in self.toppings:
-			price += cost
-		return price
+class Parkinglot():
+	def __init__(self, row: int, col: int):
+		self.hor = row
+		self.ver = col
+		self.parking_lot =[[None for _ in range(col)]for _ in range(row)]
+		self.create_grid()
 
-class PizzaBuilder():
 
-	def __init__(self, base: str):
-		self.pizza = Pizza(base)
 
-	def add_cheese(self):
-		self.pizza.add_toppings("Cheese", 1.5)
-		return self
+	def create_grid(self):
+		for i in range(self.hor):
+			for j in range(self.ver):
+				self.parking_lot[i][j] = Parkingspot(str(i)+'-'+str(j))
 
-	def add_Mushrooms(self):
-		self.pizza.add_toppings("Mushrooms", 2.5)
-		return self
-
-	def add_Tomatoes(self):
-		self.pizza.add_toppings("Tomatoes", 0.5)
-		return self
-
-	def build(self):
-		return self.pizza
+	def display_spot_id(self ,row:int, col:int):
+		return self.parking_lot[row][col].spot_id
 
 
 if __name__ == "__main__":
-	my_pizza = PizzaBuilder("Margherita")
-	my_pizza = my_pizza.add_cheese().add_Mushrooms().build()
 
-	print(f'ORDER: '+ my_pizza.get_description())
-	print(f'TOTAL BILL AMOUNT: $ {str(my_pizza.get_price())}')
-
+	lot1 = Parkinglot(3,4)
+	print(lot1.display_spot_id(1,2))
