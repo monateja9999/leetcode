@@ -1,10 +1,8 @@
-from typing import List
-
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        seen = set()
+        visited = set()
         for num in nums:
-            if num in seen:
+            if num in visited:
                 return True
-            seen.add(num)
+            visited.add(num)
         return False
