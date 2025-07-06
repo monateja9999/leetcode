@@ -1,4 +1,14 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         count = Counter(nums)
-        return [num for num,freq in heapq.nlargest(k, count.items(), key=lambda x:x[1])]
+        bucket = [[] for i in range(len(nums)+1)]
+
+        for num, freq in count.items():
+            bucket[freq].append(num)
+
+        res = []
+        for i in range(len(bucket)-1, 0 , -1):
+            for num in bucket[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
