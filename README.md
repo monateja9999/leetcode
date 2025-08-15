@@ -1,1 +1,1 @@
-# Leetcode Practice Solutions
+# Leetcode Practice Solutions.
