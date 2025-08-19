@@ -13,7 +13,7 @@ class Solution:
                 return False
         return True
 
-        #SOLUTION 2
+        # SOLUTION 2
         # req = sorted(trips, key=lambda x:x[1])
         # q = deque()
         # q.append(req[0])
@@ -30,7 +30,7 @@ class Solution:
         #     q.append(req[i])
         # return True
 
-        #SOLUTION 3          
+        # SOLUTION 3          
         # trips.sort(key=lambda x:x[1])
         # heap = []
         # passengers = 0
