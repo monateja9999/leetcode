@@ -22,4 +22,5 @@ class Solution:
 
             if s1_check == s2_check:
                 return True
+                
         return False        
