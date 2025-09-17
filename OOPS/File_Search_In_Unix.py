@@ -9,7 +9,7 @@ class FileSearchStrategy(ABC):
     def test():
         pass
 
-# Concrete Strategy: Search by Name
+# Concrete Strategy 1: Search by Name
 class SearchByName(FileSearchStrategy):
     def search(self, directory: str, file_name: str):
         result = []
