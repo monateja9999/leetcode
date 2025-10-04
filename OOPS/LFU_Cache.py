@@ -1,7 +1,6 @@
 from collections import defaultdict, OrderedDict
 
 class LFUCache:
-
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.size = 0
