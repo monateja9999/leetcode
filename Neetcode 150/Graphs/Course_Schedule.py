@@ -11,8 +11,7 @@ class Solution:
             if course in visited:
                 return False
             if prerequisite[course] == []:
-                return True
-            
+                return True     
             visited.add(course)
             for each in prerequisite[course]:
                 if dfs(each) == False:
