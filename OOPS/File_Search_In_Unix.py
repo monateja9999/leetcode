@@ -1,6 +1,5 @@
 import os
 from abc import ABC, abstractmethod
-
 # Strategy Interface
 class FileSearchStrategy(ABC):
     @abstractmethod
