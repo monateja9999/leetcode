@@ -3,7 +3,6 @@
 import sys
 print(sys.version)
 
-
 # Lists (Stacks)
 l = []               # empty list
 l = [1, 2, 3]        # with elements
