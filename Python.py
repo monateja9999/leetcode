@@ -8,7 +8,6 @@ l = []               # empty list
 l = [1, 2, 3]        # with elements
 l = list(range(5))   # [0, 1, 2, 3, 4]
 
-
 l.append(5)
 l.extend([6,5,5])
 l.pop()
