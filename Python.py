@@ -8,6 +8,7 @@ l = []               # empty list
 l = [1, 2, 3]        # with elements
 l = list(range(5))   # [0, 1, 2, 3, 4]
 
+
 l.append(5)
 l.extend([6,5,5])
 l.pop()
@@ -331,3 +332,23 @@ from collections import Counter
 
 c = Counter("banana")
 print(c.most_common(2))  # [('a', 3), ('n', 2)]
+
+def bisect_left (list: nums, int: target) -> int:
+    left, right = 0, len(nums)
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid
+    return left
+
+def bisect_right(list: nums, int: target) -> int:
+    left, right = 0, len(nums)
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] <= target:
+            left = mid + 1
+        else:
+            right = mid
+    return left
