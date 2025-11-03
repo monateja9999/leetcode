@@ -207,7 +207,6 @@ for x in list(s.irange(2, 8)):
 
 print(s)
 
-
 # HEAPS
 
 import heapq
