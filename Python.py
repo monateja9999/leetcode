@@ -82,7 +82,6 @@ print("Matrix 4:\n",mat4)
 print(4*mat4[1][1])
 
 
-
 matrix = [[0]*4]*4
 print("\nMatrix:\n")
 
@@ -351,3 +350,4 @@ def bisect_right(list: nums, int: target) -> int:
         else:
             right = mid
     return left
+
