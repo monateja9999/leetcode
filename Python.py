@@ -3,6 +3,11 @@
 import sys
 print(sys.version)
 
+n = 8
+m = format(n, "08b")
+
+print(int(m, 2))
+
 # Lists (Stacks)
 l = []               # empty list
 l = [1, 2, 3]        # with elements
@@ -350,4 +355,6 @@ def bisect_right(list: nums, int: target) -> int:
         else:
             right = mid
     return left
+
+
 

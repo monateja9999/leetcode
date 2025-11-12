@@ -1,3 +1,4 @@
+
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
      
@@ -23,6 +24,7 @@ class Solution:
                     heapq.heappush(minHeap, (w, v))
         return cost
 
+# O (N^2)
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         edges, ans, node = 0, 0, 0
